@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase';// import the firebase plugin
 
 export interface MenuItem {
 	title: string;
@@ -16,7 +16,7 @@ const config = {
 	projectId: "hivekeeper-9bcd7",
 	storageBucket: "hivekeeper-9bcd7.appspot.com",
 	messagingSenderId: "604265744884"
-};
+}; //  access this information from the firebase console
 @Component({
 	templateUrl: 'app.html'
 })
