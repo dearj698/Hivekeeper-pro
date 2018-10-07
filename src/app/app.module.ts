@@ -19,6 +19,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
 
+var config = {
+	apiKey: "AIzaSyCHdEEibwMTAeE7iPxWUieLFzzrHeKdflM",
+	authDomain: "hivekeeper-9bcd7.firebaseapp.com",
+	databaseURL: "https://hivekeeper-9bcd7.firebaseio.com",
+	projectId: "hivekeeper-9bcd7",
+	storageBucket: "hivekeeper-9bcd7.appspot.com",
+	messagingSenderId: "604265744884"
+};
+
 @NgModule({
   declarations: [
 		ionPropertyApp

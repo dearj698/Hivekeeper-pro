@@ -2,13 +2,21 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import * as firebase from 'firebase';
 
 export interface MenuItem {
 	title: string;
 	component: any;
 	icon: string;
 }
-
+const config = {
+	apiKey: "AIzaSyCHdEEibwMTAeE7iPxWUieLFzzrHeKdflM",
+	authDomain: "hivekeeper-9bcd7.firebaseapp.com",
+	databaseURL: "https://hivekeeper-9bcd7.firebaseio.com",
+	projectId: "hivekeeper-9bcd7",
+	storageBucket: "hivekeeper-9bcd7.appspot.com",
+	messagingSenderId: "604265744884"
+};
 @Component({
 	templateUrl: 'app.html'
 })
@@ -79,6 +87,7 @@ export class ionPropertyApp {
 			this.statusBar.styleLightContent();
 			this.splashScreen.hide();
 		});
+		firebase.initializeApp(config);
 	}
 
 	openPage(page) {

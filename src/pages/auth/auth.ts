@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { IonicPage, NavController, AlertController, ToastController, MenuController } from 'ionic-angular';
+import * as firebase from 'Firebase';
 
 @IonicPage({
 	name: 'page-auth',
@@ -16,10 +17,17 @@ export class AuthPage implements OnInit {
   public onLoginForm: FormGroup;
   public onRegisterForm: FormGroup;
   auth: string = "login";
+  ref = firebase.database().ref('Users/');
 
   constructor(private _fb: FormBuilder, public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
 		this.menu.swipeEnable(false);
 		this.menu.enable(false);
+		this.ref.once("value").then(function(snapshot){
+			var key =snapshot.key;
+			var child = snapshot.child("admin/email").val();
+			console.log("the key is: "+key);
+			console.log("the child  is: "+child)
+		})
   }
 
   ngOnInit() {
