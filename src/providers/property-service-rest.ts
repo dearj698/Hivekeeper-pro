@@ -18,7 +18,7 @@ export class PropertyService {
             .toPromise();
     }
 
-    findByName(key:string) {
+		findByName(key:string) {
         return this.http.get(propertiesURL + "?key=" + key)
             .map(res => res.json())
             .toPromise();

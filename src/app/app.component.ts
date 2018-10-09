@@ -26,6 +26,8 @@ export class ionPropertyApp {
 	rootPage: any = 'page-initial';
 	showMenu: boolean = true;
 
+	tabItem:any;
+
 	homeItem: any;
 
 	initialItem: any;
@@ -46,7 +48,7 @@ export class ionPropertyApp {
 
 	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
 		this.initializeApp();
-
+		this.tabItem = {component:'page-tabs'};
 		this.homeItem = {component: 'page-home' };
 		this.initialItem = {component: 'page-initial'};
 		this.messagesItem = {component: 'page-message-list'};

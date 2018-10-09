@@ -54,7 +54,11 @@ export class HomePage {
 
 	findAll() {
 	    this.service.findAll()
-	        .then(data => this.properties = data)
+	        .then(data => {
+					this.properties = data;
+	        		console.log(data);
+	        }
+			)
 	        .catch(error => alert(error));
 	}
 
