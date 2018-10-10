@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { IonicPage, NavController, AlertController, ToastController, MenuController } from 'ionic-angular';
+import {AuthServiceProvider} from '../../providers/auth-service/auth-service'
 import * as firebase from 'Firebase';
 
 @IonicPage({
@@ -18,10 +19,17 @@ export class AuthPage implements OnInit {
   public onRegisterForm: FormGroup;
   auth: string = "login";
   ref = firebase.database().ref('Users/');
+  fullname: string;
+  emailAds:string;
+  pwd:string;
 
-  constructor(private _fb: FormBuilder, public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+  constructor(private _fb: FormBuilder, public nav: NavController,
+			  private authprovider:AuthServiceProvider,
+			  public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
 		this.menu.swipeEnable(false);
 		this.menu.enable(false);
+	 	 const auth = firebase.auth();
+	 	 console.log(auth.currentUser);
 		this.ref.once("value").then(function(snapshot){
 			var key =snapshot.key;
 			var child = snapshot.child("admin/email").val();
@@ -60,7 +68,13 @@ export class AuthPage implements OnInit {
 
   // login and go to home page
   login() {
-    this.nav.setRoot('page-home');
+    this.nav.setRoot('page-tabs');
+  }
+  register(email,password){
+  	console.log(email);
+  	console.log(password);
+	this.authprovider.register(email,password);
+	this.login();
   }
 
   forgotPass() {

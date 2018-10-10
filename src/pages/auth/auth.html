@@ -72,7 +72,7 @@
 
 				</div>
 			</div>
-
+// the register page
 			<div id="registerForm" *ngSwitchCase="'register'">
 		    <!-- Register form -->
 		    <form [formGroup]="onRegisterForm" class="list-form">
@@ -81,7 +81,7 @@
 		          <ion-icon name="person" item-start class="text-white"></ion-icon>
 		          Full Name
 		        </ion-label>
-		        <ion-input type="text" formControlName="fullName"></ion-input>
+		        <ion-input type="text" formControlName="fullName" [(ngModel)]="fullname"></ion-input>
 		      </ion-item>
 		      <p ion-text color="danger" class="text-1x has-error" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">This field is required</p>
 
@@ -90,7 +90,7 @@
 		          <ion-icon name="mail" item-start class="text-white"></ion-icon>
 		          Email
 		        </ion-label>
-		        <ion-input type="email" formControlName="email"></ion-input>
+		        <ion-input type="email" formControlName="email" [(ngModel)]="emailAds"></ion-input>
 		      </ion-item>
 		      <p ion-text color="danger" class="text-1x has-error" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">This field is required</p>
 
@@ -99,13 +99,13 @@
 		          <ion-icon name="lock" item-start class="text-white"></ion-icon>
 		          Password
 		        </ion-label>
-		        <ion-input type="password" formControlName="password"></ion-input>
+		        <ion-input type="password" formControlName="password" [(ngModel)]="pwd"></ion-input>
 		      </ion-item>
 		      <p ion-text color="danger" class="text-1x has-error" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">This field is required</p>
 		    </form>
 
 		    <div margin-top>
-		      <button ion-button block outline color="light" (click)="login()" [disabled]="!onRegisterForm.valid">
+		      <button ion-button block outline color="light" (click)="register(emailAds,pwd)" [disabled]="!onRegisterForm.valid">
 		        SIGN UP
 		      </button>
 
