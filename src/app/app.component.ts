@@ -17,6 +17,7 @@ const config = {
 	storageBucket: "hivekeeper-9bcd7.appspot.com",
 	messagingSenderId: "604265744884"
 }; //  access this information from the firebase console
+
 @Component({
 	templateUrl: 'app.html'
 })
@@ -46,6 +47,8 @@ export class ionPropertyApp {
 
 	helpMenuItems: Array<MenuItem>;
 
+	fullname:string;
+
 	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
 		this.initializeApp();
 		this.tabItem = {component:'page-tabs'};
@@ -54,7 +57,8 @@ export class ionPropertyApp {
 		this.messagesItem = {component: 'page-message-list'};
 		this.invoicesItem = {component: 'page-invoices'};
 		this.timelineItem = {component: 'page-timeline'};
-
+		this.fullname=localStorage.getItem('name');
+		console.log(this.fullname);
 		this.appMenuItems = [
 			{title: 'Properties', component: 'page-property-list', icon: 'home'},
 			{title: 'Brokers', component: 'page-broker-list', icon: 'people'},
@@ -96,5 +100,8 @@ export class ionPropertyApp {
 		// Reset the content nav to have just this page
 		// we wouldn't want the back button to show in this scenario
 		this.nav.setRoot(page.component);
+	}
+	ionViewWillEnter(){
+		console.log(this.fullname);
 	}
 }

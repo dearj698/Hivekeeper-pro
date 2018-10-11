@@ -68,13 +68,18 @@ export class AuthPage implements OnInit {
 
   // login and go to home page
   login() {
-    this.nav.setRoot('page-tabs');
+    // Henry , add login
+	  this.nav.setRoot('page-tabs');
   }
-  register(email,password){
+  register(email,password,name){
   	console.log(email);
   	console.log(password);
+  	console.log(name);
 	this.authprovider.register(email,password);
-	this.login();
+	localStorage.setItem('email',email);
+	localStorage.setItem('password',password);
+	localStorage.setItem('name',name);
+	  this.nav.setRoot('page-tabs');
   }
 
   forgotPass() {

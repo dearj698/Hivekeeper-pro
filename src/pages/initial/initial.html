@@ -3,7 +3,7 @@
 		<ion-row no-padding>
 			<ion-col>
 
-				<ion-slides pager="true" dir="{{dir}}">
+				<ion-slides   pager="true" dir="{{dir}}">
 					<ion-slide *ngFor="let slide of slideList">
 						<ion-toolbar>
 							<ion-buttons end>
@@ -28,10 +28,10 @@
 						<h2 class="slide-title text-white" margin-bottom>Ready to Play?</h2>
 
 						<div padding>
-							<button ion-button block round outline color="light" margin-top (click)="openAuthPage()">
+							<button ion-button block round  color="primary" margin-top (click)="openAuthPage()">
 								Sign In / Sign Up
 							</button>
-							<button ion-button block round outline color="light" margin-top (click)="openHomePage()">
+							<button ion-button block round  color="primary" margin-top (click)="openHomePage()">
 								Get Started
 							</button>
 						</div>

@@ -13,9 +13,10 @@ import { IonicPage, NavController, LoadingController, ToastController } from 'io
 
 export class MyAccountPage {
   profiledata: Boolean = true;
-
+  fullname:string;
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
-
+ this.fullname=localStorage.getItem('name');
+ console.log(this.fullname)
   }
 
   // process send button

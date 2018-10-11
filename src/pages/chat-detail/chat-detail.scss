@@ -1,6 +1,6 @@
 page-chat-detail {
   $userBackgroundColor: color($colors, primary);
-  $toUserBackgroundColor: #fff;
+  $toUserBackgroundColor: whitesmoke;
 
   .line-breaker {
     white-space: pre-line;
@@ -41,12 +41,12 @@ page-chat-detail {
           margin-top: 5px;
           border-radius: 5px;
           padding: 8px;
-          color: #fff;
+          color: whitesmoke;
           width: auto;
           max-width: 80%;
           span.triangle {
-            background-color: #fff;
-            // border-radius: 2px;
+            background-color: whitesmoke;
+            //border-radius: 2px;
             height: 8px;
             width: 8px;
             top: 12px;

@@ -72,7 +72,6 @@
 
 				</div>
 			</div>
-// the register page
 			<div id="registerForm" *ngSwitchCase="'register'">
 		    <!-- Register form -->
 		    <form [formGroup]="onRegisterForm" class="list-form">
@@ -105,7 +104,7 @@
 		    </form>
 
 		    <div margin-top>
-		      <button ion-button block outline color="light" (click)="register(emailAds,pwd)" [disabled]="!onRegisterForm.valid">
+		      <button ion-button block outline color="light" (click)="register(emailAds,pwd,fullname)" [disabled]="!onRegisterForm.valid">
 		        SIGN UP
 		      </button>
 
