@@ -18,6 +18,35 @@ export class HomePage {
 
   properties: Array<any>;
   searchKey: string = "";
+	items = [
+		{
+			name: 'one',
+			slides: [{
+				title: 'Dream\'s Adventure',
+				imageUrl: 'assets/img/4.jpg',
+				songs: 2,
+				private: false
+			},
+				{
+					title: 'For the Weekend',
+					imageUrl: 'assets/img/2.jpg',
+					songs: 4,
+					private: false
+				},
+				{
+					title: './Family Time',
+					imageUrl: 'assets/img/3.jpg',
+					songs: 5,
+					private: true
+				},
+				{
+					title: 'My Trip',
+					imageUrl: 'assets/img/1.jpg',
+					songs: 12,
+					private: true
+				}]
+		},
+	];
 
 	constructor(public navCtrl: NavController, public menuCtrl: MenuController, public popoverCtrl: PopoverController, public service: PropertyService) {
 		this.menuCtrl.swipeEnable(true, 'authenticated');
@@ -54,7 +83,11 @@ export class HomePage {
 
 	findAll() {
 	    this.service.findAll()
-	        .then(data => this.properties = data)
+	        .then(data => {
+					this.properties = data;
+	        		console.log(data);
+	        }
+			)
 	        .catch(error => alert(error));
 	}
 

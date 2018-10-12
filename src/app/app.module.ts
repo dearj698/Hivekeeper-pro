@@ -18,6 +18,16 @@ import { ChatService } from "../providers/chat-service-mock";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+
+var config = {
+	apiKey: "AIzaSyCHdEEibwMTAeE7iPxWUieLFzzrHeKdflM",
+	authDomain: "hivekeeper-9bcd7.firebaseapp.com",
+	databaseURL: "https://hivekeeper-9bcd7.firebaseio.com",
+	projectId: "hivekeeper-9bcd7",
+	storageBucket: "hivekeeper-9bcd7.appspot.com",
+	messagingSenderId: "604265744884"
+};
 
 @NgModule({
   declarations: [
@@ -55,7 +65,9 @@ import { Keyboard } from '@ionic-native/keyboard';
     MessageService,
     InvoiceService,
     ChatService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

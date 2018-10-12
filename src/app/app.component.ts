@@ -2,12 +2,21 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import * as firebase from 'firebase';// import the firebase plugin
 
 export interface MenuItem {
 	title: string;
 	component: any;
 	icon: string;
 }
+const config = {
+	apiKey: "AIzaSyCHdEEibwMTAeE7iPxWUieLFzzrHeKdflM",
+	authDomain: "hivekeeper-9bcd7.firebaseapp.com",
+	databaseURL: "https://hivekeeper-9bcd7.firebaseio.com",
+	projectId: "hivekeeper-9bcd7",
+	storageBucket: "hivekeeper-9bcd7.appspot.com",
+	messagingSenderId: "604265744884"
+}; //  access this information from the firebase console
 
 @Component({
 	templateUrl: 'app.html'
@@ -17,6 +26,8 @@ export class ionPropertyApp {
 
 	rootPage: any = 'page-initial';
 	showMenu: boolean = true;
+
+	tabItem:any;
 
 	homeItem: any;
 
@@ -36,15 +47,18 @@ export class ionPropertyApp {
 
 	helpMenuItems: Array<MenuItem>;
 
+	fullname:string;
+
 	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
 		this.initializeApp();
-
+		this.tabItem = {component:'page-tabs'};
 		this.homeItem = {component: 'page-home' };
 		this.initialItem = {component: 'page-initial'};
 		this.messagesItem = {component: 'page-message-list'};
 		this.invoicesItem = {component: 'page-invoices'};
 		this.timelineItem = {component: 'page-timeline'};
-
+		this.fullname=localStorage.getItem('name');
+		console.log(this.fullname);
 		this.appMenuItems = [
 			{title: 'Properties', component: 'page-property-list', icon: 'home'},
 			{title: 'Brokers', component: 'page-broker-list', icon: 'people'},
@@ -79,11 +93,15 @@ export class ionPropertyApp {
 			this.statusBar.styleLightContent();
 			this.splashScreen.hide();
 		});
+		firebase.initializeApp(config);
 	}
 
 	openPage(page) {
 		// Reset the content nav to have just this page
 		// we wouldn't want the back button to show in this scenario
 		this.nav.setRoot(page.component);
+	}
+	ionViewWillEnter(){
+		console.log(this.fullname);
 	}
 }

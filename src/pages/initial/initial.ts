@@ -53,7 +53,7 @@ export class InitialPage {
   }
 
   openHomePage() {
-  	this.navCtrl.setRoot('page-home');
+  	this.navCtrl.setRoot('page-tabs');
   }
 
   openAuthPage() {
