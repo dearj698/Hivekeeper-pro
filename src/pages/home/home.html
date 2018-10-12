@@ -3,9 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-    <ion-title>
-      <span ion-text color="primary" class="fw300">Hive</span><span ion-text color="dark" class="fw700">Keeper</span>
-    </ion-title>
+	  <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
     <ion-buttons end>
       <button ion-button (click)="presentNotifications($event)">
         <ion-icon name="notifications" color="primary"></ion-icon>
@@ -17,14 +15,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-	<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+<ion-content class="bg">
+	<ion-list no-margin *ngFor="let item of items">
+		<ion-slides pager>
+			<ion-slide *ngFor="let slide of item.slides"
+					   class="image"
+					   [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}">
+				<div class="slide-text">
+					<h2 class="font">{{slide.title}}</h2>
+					<p class="font">{{slide.songs}} songs</p>
+				</div>
+			</ion-slide>
+		</ion-slides>
+	</ion-list>
+
 	<ion-grid fixed>
-		<ion-row>
-			<ion-col col-12>
-				<h3 ion-text text-center color="dark" class="main-styled-border">Hive Platform</h3>
-			</ion-col>
-		</ion-row>
+				<h3 ion-text text-center color="primary" class="main-styled-border">Hive <span ion-text class="fw700" color="dark">Keeper</span></h3>
 	</ion-grid>
 
 
@@ -33,17 +39,11 @@
 		<div class="grid-full">
 			<ion-row>
 				<ion-col>
-					<ion-card>
-						<h2>RENTAL</h2>
-						<p>find a place</p>
-					</ion-card>
+						<img class="img1" src="../../assets/img/service.png" />
 				</ion-col>
 
 				<ion-col>
-					<ion-card>
-						<h2>SERVICE</h2>
-						<p>convience of life</p>
-					</ion-card>
+						<img class="img2" src="../../assets/img/rent.png"/>
 				</ion-col>
 			</ion-row>
 		</div>
@@ -52,20 +52,15 @@
 
 
 	<ion-grid fixed>
-		<ion-row>
-			<ion-col col-12>
-				<h3 ion-text text-center color="dark" class="main-styled-border">Our Picked</h3>
-			</ion-col>
-		</ion-row>
+				<h3 ion-text text-center color="primary" class="main-styled-border">Our <span ion-text color="dark">Picked</span></h3>
+		<span ion-text class="subtitle" color="subtitle" text-center>see these carefully picked places</span>
 	</ion-grid>
 
 	<ion-slides class="slides" spaceBetween="10" slidesPerView="2">
 		<ion-slide class="slide" *ngFor="let property of properties">
-			<ion-card class="card">
 				<img class="img" src="{{property.thumbnail}}" (click)="openPropertyDetail(property)">
-				<ion-card-title class="font" color="dark">{{property.title}}</ion-card-title>
-				<ion-card-content class="font" color="primary">{{property.city}}, {{property.state}} ∙ {{ property.price }}</ion-card-content>
-			</ion-card>
+				<ion-card-title class="Font" color="secondary">{{property.title}}</ion-card-title>
+				<ion-card-content class="Font" color="dark">{{property.city}}, {{property.state}} ∙ {{ property.price }}</ion-card-content>
 		</ion-slide>
 	</ion-slides>
 

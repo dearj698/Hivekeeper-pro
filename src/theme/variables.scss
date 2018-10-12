@@ -16,7 +16,10 @@ $colors: (
   secondary:  #52565b,
   danger:     #de5648,
   light:      whitesmoke,
-  dark:       #e69a73
+  dark:       #e69a73,
+subtitle: lightgray
+
+
 );
 
 
@@ -32,7 +35,7 @@ $grid-max-widths: (
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 $text-color: color($colors, primary);
-$background-color: #fff;
+$background-color: whitesmoke;
 $toolbar-background: #fff;
 
 // App iOS Variables

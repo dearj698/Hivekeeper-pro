@@ -1,8 +1,29 @@
 page-home {
+  .font{
+	color: #fff;
+  }
+  .ionlist{
+	margin: 0;
+  }
+  .subtitle{
+	font-size: medium;
+  }
+  .image{
+	margin-top: -10px;
+	margin-bottom: 10px;
+	border-radius: 8px;
+
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 	.list-ios > .item-block:first-child {
 	    border-top: 0;
 	}
-
+.main-styled-border1{
+  margin-top: -25px;
+}
+  .main-styled-border2{
+	margin-top: -20px;
+  }
 	.item-ios[detail-push] .item-inner,
 	button.item-ios:not([detail-none]) .item-inner,
 	a.item-ios:not([detail-none]) .item-inner {
@@ -31,8 +52,8 @@ page-home {
   .slides{
 	.slide{
 	  .card{
-.font{
-  font-size: small;;
+.Font{
+  font-size: small!important;
 }
 	  }
 	}
@@ -49,6 +70,25 @@ page-home {
 	}
 	.col {
 	  padding: 5px 0;
+	}
+	ion-card {
+	  position: relative;
+	  text-align: center;
+	}
+
+	.img1{
+	  border-radius: 8px;
+	  margin-left: 10px;
+	  width: 90%;
+	  background-color: white;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	.img2{
+	  border-radius: 8px;
+	  margin-right: 10px;
+	  width: 90%;
+	  background-color: white;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 	.card {
 	  margin: 0 5px;
