@@ -18,44 +18,58 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col col-6 no-padding>
-        <button ion-button full large no-margin color="primary" (click)="openPropertyListPage({proptype: 'sale', from: 'home'})">For Sale</button>
-      </ion-col>
-      <ion-col col-6 no-padding>
-        <button ion-button full large no-margin color="dark" (click)="openPropertyListPage({proptype: 'rent', from: 'home'})">For Rent</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
+	<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
 	<ion-grid fixed>
 		<ion-row>
 			<ion-col col-12>
-				<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
-
-				<h3 ion-text text-center color="dark" class="main-styled-border">Recently Added</h3>
+				<h3 ion-text text-center color="dark" class="main-styled-border">Hive Platform</h3>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 
+
+	<div cards>
+
+		<div class="grid-full">
+			<ion-row>
+				<ion-col>
+					<ion-card>
+						<h2>RENTAL</h2>
+						<p>find a place</p>
+					</ion-card>
+				</ion-col>
+
+				<ion-col>
+					<ion-card>
+						<h2>SERVICE</h2>
+						<p>convience of life</p>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</div>
+
+	</div>
+
+
 	<ion-grid fixed>
 		<ion-row>
-
-			<button ion-item col col-12 col-md-6 *ngFor="let property of properties" (click)="openPropertyDetail(property)">
-				<ion-thumbnail item-start>
-						<img src="{{property.thumbnail}}">
-				</ion-thumbnail>
-				<h2 ion-text color="dark">{{property.title}}</h2>
-				<h3 ion-text color="primary">{{property.city}}, {{property.state}} ∙ {{ property.price }}</h3>
-				<button ion-button round item-end color="light">
-					<ion-icon name="arrow-round-forward" color="primary"></ion-icon>
-				</button>
-			</button>
-
+			<ion-col col-12>
+				<h3 ion-text text-center color="dark" class="main-styled-border">Our Picked</h3>
+			</ion-col>
 		</ion-row>
 	</ion-grid>
+
+	<ion-slides class="slides" spaceBetween="10" slidesPerView="2">
+		<ion-slide class="slide" *ngFor="let property of properties">
+			<ion-card class="card">
+				<img class="img" src="{{property.thumbnail}}" (click)="openPropertyDetail(property)">
+				<ion-card-title class="font" color="dark">{{property.title}}</ion-card-title>
+				<ion-card-content class="font" color="primary">{{property.city}}, {{property.state}} ∙ {{ property.price }}</ion-card-content>
+			</ion-card>
+		</ion-slide>
+	</ion-slides>
+
+
 
 	<ion-grid fixed>
 		<ion-row>
