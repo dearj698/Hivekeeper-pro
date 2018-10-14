@@ -24,7 +24,7 @@ export class HomePage {
 		{
 			name: 'one',
 			slides: [{
-				title: 'Dream\'s Adventure',
+				title: 'Dreams Adventure',
 				imageUrl: 'assets/img/4.jpg',
 				songs: 2,
 				private: false
@@ -36,7 +36,7 @@ export class HomePage {
 					private: false
 				},
 				{
-					title: './Family Time',
+					title: 'Family Time',
 					imageUrl: 'assets/img/3.jpg',
 					songs: 5,
 					private: true
