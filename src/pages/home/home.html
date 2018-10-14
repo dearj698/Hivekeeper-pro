@@ -56,7 +56,7 @@
 		<span ion-text class="subtitle" color="subtitle" text-center>see these carefully picked places</span>
 	</ion-grid>
 
-	<ion-slides class="slides" spaceBetween="10" slidesPerView="2">
+	<ion-slides autoplay="2000" [loop]="true" class="slides" spaceBetween="10" slidesPerView="2">
 		<ion-slide class="slide" *ngFor="let property of properties">
 				<img class="img" src="{{property.thumbnail}}" (click)="openPropertyDetail(property)">
 				<ion-card-title class="Font" color="secondary">{{property.title}}</ion-card-title>
