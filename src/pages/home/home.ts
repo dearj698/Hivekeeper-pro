@@ -3,6 +3,7 @@ import { IonicPage, NavController, MenuController, PopoverController } from 'ion
 
 import { PropertyService } from '../../providers/property-service-mock';
 
+
 @IonicPage({
 	name: 'page-home',
 	segment: 'home',
@@ -18,6 +19,7 @@ export class HomePage {
 
   properties: Array<any>;
   searchKey: string = "";
+
 	items = [
 		{
 			name: 'one',

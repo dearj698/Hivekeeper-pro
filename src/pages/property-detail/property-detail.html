@@ -13,8 +13,8 @@
 
 				<ion-card *ngIf="property.id">
 	                <!--slides-->
-	                <ion-slides class="to-top" pager>
-	                  <ion-slide *ngFor="let image of property.images">
+	                <ion-slides autoplay="2000" [loop]="true" class="to-top" pager>
+	                  <ion-slide *ngFor="let image of property.images" >
 	                    <img src="{{ image }}" alt="">
 	                  </ion-slide>
 	                </ion-slides>

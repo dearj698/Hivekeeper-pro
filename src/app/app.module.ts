@@ -19,7 +19,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-
 var config = {
 	apiKey: "AIzaSyCHdEEibwMTAeE7iPxWUieLFzzrHeKdflM",
 	authDomain: "hivekeeper-9bcd7.firebaseapp.com",
@@ -31,7 +30,7 @@ var config = {
 
 @NgModule({
   declarations: [
-		ionPropertyApp
+		ionPropertyApp,
   ],
   imports: [
     BrowserModule,

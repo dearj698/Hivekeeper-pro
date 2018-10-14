@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header scroll-hide [scrollContent]="pageContent">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu" color="dark"></ion-icon>
@@ -15,9 +15,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="bg">
+<ion-content  #pageContent fullscreen class="bg">
 	<ion-list no-margin *ngFor="let item of items">
-		<ion-slides pager>
+		<ion-slides autoplay="2000" [loop]="true" pager>
 			<ion-slide *ngFor="let slide of item.slides"
 					   class="image"
 					   [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}">
@@ -28,7 +28,7 @@
 			</ion-slide>
 		</ion-slides>
 	</ion-list>
-
+	<!--<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" class="searchbar" (ionCancel)="onCancel($event)"></ion-searchbar>-->
 	<ion-grid fixed>
 				<h3 ion-text text-center color="primary" class="main-styled-border">Hive <span ion-text class="fw700" color="dark">Keeper</span></h3>
 	</ion-grid>
@@ -39,11 +39,11 @@
 		<div class="grid-full">
 			<ion-row>
 				<ion-col>
-						<img class="img1" src="../../assets/img/service.png" />
+						<img class="img1" src="../../assets/img/service.jpg" />
 				</ion-col>
 
 				<ion-col>
-						<img class="img2" src="../../assets/img/rent.png"/>
+						<img (click)=" openPropertyListPage()" class="img2" src="../../assets/img/rent.jpg"/>
 				</ion-col>
 			</ion-row>
 		</div>
