@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, Nav, NavController, NavParams} from 'ionic-angular';
 import {TabsPageModule} from "./tabs.module";
+
 @IonicPage({
 	name: 'page-tabs',
 	segment: 'tabs'
@@ -14,7 +15,9 @@ export class TabsPage {
 	rootPage: any = 'page-tabs';
 	tabItem :any;
 	tab1Root: any = 'page-home';
-	tab2Root: any = 'page-invoices';
+	tab4Root:any='page-property-list';
+	tab2Root: any = 'page-my-account';
+	tab3Root:string = 'page-roomate';
 	myIndex: number;
 	homeItem: any;
 
@@ -23,6 +26,7 @@ export class TabsPage {
 		this.myIndex = navParams.data.tabIndex || 0;
 		this.homeItem = {component: 'page-home' };
 		this.tabItem = {component:'page-tabs'};
+
 	}
 	openPage(page){
 		// @ts-ignore

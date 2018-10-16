@@ -1,0 +1,13 @@
+<ion-header scroll-hide [scrollContent]="pageContent">
+	<ion-navbar>
+		<ion-title color="dark">Hive <span ion-text class="fw700" color="dark">Keeper</span></ion-title>
+	</ion-navbar>
+	<ion-toolbar>
+		<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" class="searchbar" (ionCancel)="onCancel($event)"></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content #pageContent fullscreen padding>
+
+</ion-content>

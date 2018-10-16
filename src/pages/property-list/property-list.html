@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header scroll-hide [scrollContent]="pageContent">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu" color="dark"></ion-icon>
@@ -14,11 +14,11 @@
   </ion-navbar>
 
   <ion-toolbar>
-    <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+    <ion-searchbar class="search-row" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="lightest-bg">
+<ion-content #pageContent fullscreen class="lightest-bg">
 
 	<div padding-horizontal padding-top *ngIf="from !== 'home'">
 	  <ion-segment [(ngModel)]="proptype">

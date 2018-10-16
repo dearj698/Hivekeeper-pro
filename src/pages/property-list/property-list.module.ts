@@ -4,7 +4,7 @@ import { PipesModule } from '../../pipes/pipes.module';
 import { AgmCoreModule } from '@agm/core';
 
 import { PropertyListPage } from './property-list';
-
+import { DirectivesModule } from "../../directives/directives.module";
 @NgModule({
 	declarations: [
 		PropertyListPage
@@ -12,6 +12,7 @@ import { PropertyListPage } from './property-list';
 	imports: [
 		IonicPageModule.forChild(PropertyListPage),
 		PipesModule,
+		DirectivesModule,
 		AgmCoreModule.forRoot({
 			apiKey: 'AIzaSyD9BxeSvt3u--Oj-_GD-qG2nPr1uODrR0Y'
 		})

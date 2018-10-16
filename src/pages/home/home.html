@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu" color="dark"></ion-icon>
     </button>
-	  <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+	  <ion-title color="dark">Hive <span ion-text class="fw700" color="dark">Keeper</span></ion-title>
     <ion-buttons end>
       <button ion-button (click)="presentNotifications($event)">
         <ion-icon name="notifications" color="dark"></ion-icon>
@@ -13,6 +13,9 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+	<ion-toolbar>
+		<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" class="searchbar" (ionCancel)="onCancel($event)"></ion-searchbar>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content  #pageContent fullscreen class="bg">
@@ -28,10 +31,6 @@
 			</ion-slide>
 		</ion-slides>
 	</ion-list>
-	<!--<ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" class="searchbar" (ionCancel)="onCancel($event)"></ion-searchbar>-->
-	<ion-grid fixed>
-				<h3 ion-text text-center color="dark" class="main-styled-border">Hive <span ion-text class="fw700" color="secondary">Keeper</span></h3>
-	</ion-grid>
 
 
 	<div cards>
@@ -63,7 +62,7 @@
 
 
 	<ion-grid fixed>
-				<h3 ion-text text-center color="dark" class="main-styled-border">Our <span ion-text color="secondary">Picked</span></h3>
+				<h3 ion-text text-center color="secondary" class="main-styled-border">Our <span ion-text color="dark">Picked</span></h3>
 		<span ion-text class="subtitle" color="subtitle" text-center>see these carefully picked places</span>
 	</ion-grid>
 
